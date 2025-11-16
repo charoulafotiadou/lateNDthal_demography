@@ -1,0 +1,60 @@
+country,arch_site,lat,long,period,Description,colour
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chag_6c_A15858,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya01,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya02,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya07,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya09,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya14,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya17,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya18,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya19,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya20,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya41,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya60,#c400d058
+Russia,Chagyrskaya Cave,51.552,83.154,MIS 5-4,Chagyrskaya8,#c400d058
+Russia,Denisova Cave,51.397,84.676,MIS 5-4,Denisova East Layer11.4,#00960058
+Russia,Denisova Cave,51.397,84.676,MIS 5-4,Denisova Main Layer14.3 ,#00960058
+Russia,Denisova Cave,51.397,84.676,MIS 5-4,Denisova Main Layer19.1,#00960058
+Russia,Denisova Cave,51.397,84.676,MIS 5-4,Denisova11,#c400d058
+Russia,Denisova Cave,51.397,84.676,MIS 5-4,Denisova15,#00960058
+Russia,Denisova Cave,51.397,84.676,MIS 5-4,Denisova17,#00960058
+Russia,Denisova Cave,51.397,84.676,MIS 5-4,Denisova5,#00960058
+Spain,El Sidron,43.386,-5.328,MIS 3,El Sidron 1253,#0000a258
+Spain,El Sidron,43.386,-5.328,MIS 3,ElSidron StratumIII   ,#0000a258
+Spain,Galeria de las Estatuas,42.3501,-3.519,MIS 5-4,Est_2_A16112.SR,#00960058
+Spain,Galeria de las Estatuas,42.3501,-3.519,MIS 5-4,Est_3_A16045.SR,#00960058
+Spain,Galeria de las Estatuas,42.3501,-3.519,MIS 5-4,Est_4_A20281.SR,#64739c58
+Germany,Kleine Feldhofer Grotte,51.227,6.945,MIS 3,Feldhofer 1,#0000a258
+Germany,Kleine Feldhofer Grotte,51.227,6.945,MIS 3,Feldhofer 2,#0000a258
+Belgium,Fond-de-Foret,50.227,5.681,MIS 3,Fonds-de-Foret,#0000a258
+Gibraltar,Forbes' Quarry,36.146,-5.346,MIS 3,ForbesQuarry,#0000a258
+Belgium,Goyet Cave,50.446,5.008,MIS 3,GoyetQ305-4,#0000a258
+Belgium,Goyet Cave,50.446,5.008,MIS 3,GoyetQ56-1,#0000a258
+Belgium,Goyet Cave,50.446,5.008,MIS 3,GoyetQ57-2,#0000a258
+Germany,Hohlenstein-Stadel,48.549,10.172,MIS 5-4,Hohlenstein-Stadel,#64739c58
+France,Les Cottes,46.694,0.883,MIS 3,Les Cottes Z4-1514,#c400d058
+Russia,Mezmaiskaya,44.167,40,MIS 5-4,Mezmaiskaya 1,#ffe70058
+Russia,Mezmaiskaya,44.167,40,MIS 3,Mezmaiskaya 2,#0000a258
+Russia,Mezmaiskaya,44.167,40,MIS 5-4,Mezmaiskaya 3,#ffe70058
+Russia,Okladnikov Cave,51.666,84.333,MIS 5-4,Okladikov11,#c400d058
+Russia,Okladnikov Cave,51.666,84.333,MIS 5-4,Okladikov15,#c400d058
+Russia,Okladnikov Cave,51.666,84.333,MIS 5-4,Okladnikov 2,#c400d058
+Italy,Riparo Broion,45.748,11.172,MIS 3,Riparo Broion 1,#0000a258
+Belgium,Scladina Cave,50.483,5.025,MIS 5-4,Scladina I-4A,#00960058
+Belgium,Spy,50.482,4.669,MIS 3,Spy 94a,#0000a258
+Poland,Stajnia Cave,50.616,19.484,MIS 5-4,Stajnia S5000,#ffe70058
+France,Grotte Mandrin,44.469556,4.771361,MIS 3,Thorin,#ffe70058
+Croatia,Vindija,46.299,16.07,MIS 3,Vindija33.17,#0000a258
+Croatia,Vindija,46.299,16.07,MIS 3,Vindija 33.16,#0000a258
+Croatia,Vindija,46.299,16.07,MIS 3,Vindija 33.19/87,#0000a258
+Croatia,Vindija,46.299,16.07,MIS 3,Vindija 33.25,#0000a258
+Serbia,Pesturina Cave,43.166,21.9,MIS 5-4,Pešturina 3,#ffe70058
+Germany,Sesselfelsgrotte,48.935427,11.790045,MIS 5-4,Sesselfelsgrotte 1,#ffe70058
+France,Tourtoirac,45.2711111,1.0602778,MIS 5-4,Tourtoirac N.1,#00960058
+France,Tourtoirac,45.2711111,1.0602778,MIS 5-4,Tourtoirac N.4,#00960058
+France,Tourtoirac,45.2711111,1.0602778,MIS 5-4,Tourtoirac_D_14,#ffe70058
+Belgium,Goyet Cave,50.446,5.008,MIS 3,Goyet Q305-1,#0000a258
+Belgium,Goyet Cave,50.446,5.008,MIS 3,Goyet 2878-2D,#0000a258
+Belgium,Goyet Cave,50.446,5.008,MIS 3,Goyet D183-4,#0000a258
+France,Saint-Cesaire,45.748,-0.506,MIS 3,Saint-Césaire RPB_117,#0000a258
+Belgium,Trou Magrite,50.227,4.909,MIS 3,Trou Magrite 2422-36,#0000a258
