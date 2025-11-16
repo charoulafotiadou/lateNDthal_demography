@@ -141,7 +141,7 @@ create_density_map <- function(df, title) {
 }
 
 # --- Build Maps from sf Time Slices ---
-# Define the order and labels you want
+# Define the order and labels
 slice_names <- c(
   "slice_130000_120000", "slice_120000_110000", "slice_110000_1e+05",
   "slice_1e+05_90000",  "slice_90000_80000",   "slice_80000_70000",

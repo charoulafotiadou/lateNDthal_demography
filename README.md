@@ -46,7 +46,7 @@ Cosimo Posth¹,²
 
 ### Publication DOI: *[Add DOI or URL here]*
 
-### Compendium DOI: 
+### Compendium DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16737433.svg)](https://doi.org/10.5281/zenodo.16737433)
 
 ---
 
@@ -99,7 +99,7 @@ This repository contains the datasets, R scripts, and documentation for the anal
 ```
 
 
-> 🔒 The `1_data/yaworsky_extended/raw_data/Climate/` folder is not tracked by Git due to its large size. This folder is created when running the code.
+> ⚠️ The `1_data/yaworsky_extended/raw_data/Climate/` folder is not tracked by Git due to its large size. This folder is created when running the code.
 
 ---
 
@@ -108,7 +108,7 @@ This repository contains the datasets, R scripts, and documentation for the anal
 - `1_data/map/` – All data used for creating Fig. 1
 - `1_data/pairwise_distance/` – All data used for checking the pairwise distance (Fig. 2B)
 - `1_data/road_analysis/` – All data used creating distribution maps.
-- `1_data/yaworsky_extended/` – All data used for running the same analysis as Yaworsky et al. 2024 with an extended dataset.
+- `1_data/yaworsky_extended/` – All data used for running the same analysis as Yaworsky et al. 2024 with an extended dataset. These data were all downloaded using the PHP scripts provided in the markdown document accompanying the original paper by Yaworsky et al. (2024). They were retrieved using the same copy-paste method described in the paper, except for the ROCEEH Neanderthal Data, which were too large for this approach and were therefore downloaded using the *0.1.load_prep_save_neanderthal_data.R* script.
 - `1_data/yaworsky_et_al_2024/` – The orignial data from Yaworsky et al. 2024 for comparison.
 
 ---
@@ -151,6 +151,8 @@ GitHub: https://github.com/JesperBorrePedersen
 ORCID: [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0002--3468--0986-green.svg)](https://orcid.org/0000-0002-3468-0986)
 
 **Charoula M. Fotiadou**
+
 Email: <charoula.fotiadou@zv.uni-tuebingen.de>
+
 GitHub: https://github.com/charoulafotiadou
 
