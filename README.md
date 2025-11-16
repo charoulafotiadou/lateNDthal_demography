@@ -105,7 +105,7 @@ This repository contains the datasets, R scripts, and documentation for the anal
 
 ## 📊 Data Description
 - `1_data/dating/` – All data used for creating Fig. 3B and Fig. S18
-- `1_data/map/` – All data used for creating Fig. 1
+- `1_data/map/` – All data used for creating Fig. 1 and Fig. S21
 - `1_data/pairwise_distance/` – All data used for checking the pairwise distance (Fig. 2B)
 - `1_data/road_analysis/` – All data used creating distribution maps.
 - `1_data/yaworsky_extended/` – All data used for running the same analysis as Yaworsky et al. 2024 with an extended dataset. These data were all downloaded using the PHP scripts provided in the markdown document accompanying the original paper by Yaworsky et al. (2024). They were retrieved using the same copy-paste method described in the paper, except for the ROCEEH Neanderthal Data, which were too large for this approach and were therefore downloaded using the *0.1.load_prep_save_neanderthal_data.R* script.
