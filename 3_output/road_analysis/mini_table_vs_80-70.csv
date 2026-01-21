@@ -1,0 +1,5 @@
+Slice_ka,Rarefied_N,Full_longitude_range_median_deg,p_full_gt_80_70,Central95_range_median_deg,p_95_gt_80_70,New_longitude_bins_median
+80–70,60,47.2,NA,32.3,NA,0
+70–60,60,47.2,0.502,40,0.009,2
+60–50,60,51.9,0.045,43.5,0.011,3
+50–40,60,51.9,0.022,47,0.004,3
