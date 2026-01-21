@@ -1,0 +1,33 @@
+slice,Locality,X,Y,Country,age_min,age_max,age_diff
+slice_110000_1e+05,Bau de l Aubesier,5.338,44.045,France,104000,116000,12000
+slice_110000_1e+05,Bettencourt-Saint-Ouen,2.117,50.014,France,91500,102500,11000
+slice_110000_1e+05,Bioce,19.35,42.506,Montenegro,85000,110000,25000
+slice_110000_1e+05,Bisnik Cave,19.665,50.426,Poland,90000,110000,20000
+slice_110000_1e+05,Bojnice III Cave Moat,18.578,48.78,Slovakia,95000,115000,20000
+slice_110000_1e+05,Bolomor Cave,-0.25,39.059,Spain,103000,130000,27000
+slice_110000_1e+05,Caours,1.883,50.131,France,109000,139000,30000
+slice_110000_1e+05,Ciemna Cave,19.832,50.197,Poland,109000,123000,14000
+slice_110000_1e+05,Covalejos,-3.933,43.397,Spain,87857,101000,13143
+slice_110000_1e+05,Crvena Stijena,18.481,42.779,Montenegro,90000,110000,20000
+slice_110000_1e+05,Divje babe I,13.546,46.064,Slovenia,100000,110000,10000
+slice_110000_1e+05,Grotte Vaufrey,1.159,44.813,France,102000,116000,14000
+slice_110000_1e+05,Grotte des Ramandils,3.038,42.998,France,72000,101000,29000
+slice_110000_1e+05,Gruta da Figueira Brava,-8.986,38.471,Portugal,91500,102500,11000
+slice_110000_1e+05,Gruta da Oliveira,-8.615,39.505,Portugal,92000,110000,18000
+slice_110000_1e+05,Kabazi II,34.028,44.835,Ukraine,96000,109000,13000
+slice_110000_1e+05,La Chaise - Bourgeois-Delaunay,0.447,45.67,France,91000,116000,25000
+slice_110000_1e+05,Le Rozel,-1.84,49.472,France,91500,102500,11000
+slice_110000_1e+05,Lichtenberg,11.255,52.918,Germany,81300,100600,19300
+slice_110000_1e+05,Mario Bernardini,17.95,40.16,Italy,105000,109000,4000
+slice_110000_1e+05,Moravsky Krumlov IV,16.411,49.045,Czech Republic,89900,104500,14600
+slice_110000_1e+05,Nietoperzowa Cave,19.775,50.194,Poland,109000,123000,14000
+slice_110000_1e+05,Pech de l Azé IV,1.255,44.858,France,73000,101000,28000
+slice_110000_1e+05,Plaidter Hummerich,7.366,50.385,Germany,109000,123000,14000
+slice_110000_1e+05,Riparo del Poggio,15.387,39.998,Italy,102800,120800,18000
+slice_110000_1e+05,Starosele,33.935,44.753,Ukraine,95500,112500,17000
+slice_110000_1e+05,Stuttgart-Untertürkheim,9.245,48.791,Germany,109000,115000,6000
+slice_110000_1e+05,Taubach,11.378,50.951,Germany,101000,126000,25000
+slice_110000_1e+05,Tönchesberg 2,7.361,50.368,Germany,105000,125000,20000
+slice_110000_1e+05,Uluzzo C,17.96,40.158,Italy,109000,119000,10000
+slice_110000_1e+05,Wallertheim,8.048,49.831,Germany,93000,105000,12000
+slice_110000_1e+05,Denisova East chamber,84.678,51.398,Russia,109000,131000,22000

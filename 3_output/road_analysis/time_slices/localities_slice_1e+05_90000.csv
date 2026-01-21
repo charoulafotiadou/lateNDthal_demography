@@ -1,0 +1,32 @@
+slice,Locality,X,Y,Country,age_min,age_max,age_diff
+slice_1e+05_90000,Abri du Maras,4.563,44.312,France,80000,100000,20000
+slice_1e+05_90000,Bettencourt-Saint-Ouen,2.117,50.014,France,91500,102500,11000
+slice_1e+05_90000,Bioce,19.35,42.506,Montenegro,85000,110000,25000
+slice_1e+05_90000,Bisnik Cave,19.665,50.426,Poland,90000,110000,20000
+slice_1e+05_90000,Bojnice III Cave Moat,18.578,48.78,Slovakia,95000,115000,20000
+slice_1e+05_90000,Capelvenere,17.979,40.142,Italy,70000,100000,30000
+slice_1e+05_90000,Covalejos,-3.933,43.397,Spain,87857,101000,13143
+slice_1e+05_90000,Crvena Stijena,18.481,42.779,Montenegro,90000,110000,20000
+slice_1e+05_90000,Cueva del Camino,-3.81,40.924,Spain,83500,99700,16200
+slice_1e+05_90000,Grotte des Ramandils,3.038,42.998,France,72000,101000,29000
+slice_1e+05_90000,Gruta Nova da Columbeira,-9.201,39.298,Portugal,80000,93000,13000
+slice_1e+05_90000,Gruta da Figueira Brava,-8.986,38.471,Portugal,84500,91500,7000
+slice_1e+05_90000,Gruta da Oliveira,-8.615,39.505,Portugal,90000,92000,2000
+slice_1e+05_90000,Kabazi II,34.028,44.835,Ukraine,96000,109000,13000
+slice_1e+05_90000,La Chaise - Bourgeois-Delaunay,0.447,45.67,France,91000,116000,25000
+slice_1e+05_90000,Le Rozel,-1.84,49.472,France,91500,102500,11000
+slice_1e+05_90000,Lichtenberg,11.255,52.918,Germany,81300,100600,19300
+slice_1e+05_90000,Marcello Zei,17.58,40.7,Italy,70000,100000,30000
+slice_1e+05_90000,Moravsky Krumlov IV,16.411,49.045,Czech Republic,89900,104500,14600
+slice_1e+05_90000,Pech de l Azé II,1.253,44.859,France,74800,95800,21000
+slice_1e+05_90000,Pech de l Azé IV,1.255,44.858,France,73000,101000,28000
+slice_1e+05_90000,Pesturina,21.54,43.1,Serbia,89000,99000,10000
+slice_1e+05_90000,Plaidter Hummerich,7.366,50.385,Germany,82000,109000,27000
+slice_1e+05_90000,Schalkholz,9.271,54.242,Germany,90000,100000,10000
+slice_1e+05_90000,Serra Cicora,17.56,40.3,Italy,70000,100000,30000
+slice_1e+05_90000,Starosele,33.935,44.753,Ukraine,95500,112500,17000
+slice_1e+05_90000,Stuttgart-Untertürkheim,9.245,48.791,Germany,93000,109000,16000
+slice_1e+05_90000,Tata,18.32,47.642,Hungary,70000,99500,29500
+slice_1e+05_90000,Wallertheim,8.048,49.831,Germany,93000,105000,12000
+slice_1e+05_90000,Walou,5.696,50.591,Belgium,85700,94900,9200
+slice_1e+05_90000,Carihuela,-3.43,37.449,Spain,63400,91000,27600
