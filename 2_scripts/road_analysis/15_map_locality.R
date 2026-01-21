@@ -6,12 +6,12 @@ library(ggnewscale)
 library(patchwork)
 library(geodata)
 
-# --- Load helper ---
+# Loading helper
 read_txt_safe <- function(path) {
   read.csv2(path, header = TRUE, colClasses = "character", stringsAsFactors = FALSE)
 }
 
-# --- Load files ---
+# Loading files
 data_1 <- read_txt_safe("1_data/road_analysis/askROAD/europe_130-60_middle_pal.txt")
 data_2 <- read_txt_safe("1_data/road_analysis/askROAD/europe_asia_africa_130-40_humanremains_neanderthalensis.txt")
 
@@ -27,7 +27,7 @@ data_3_files <- list(
 data_3 <- dplyr::bind_rows(lapply(data_3_files, read_txt_safe))
 assemblages <- dplyr::bind_rows(data_1, data_2, data_3)
 
-# --- Clean and rename ---
+# Cleaning and renaming
 assemblages <- assemblages %>%
   mutate(
     Age_MIN = as.numeric(sub("#.*", "", Age_MIN)),
@@ -36,24 +36,24 @@ assemblages <- assemblages %>%
   ) %>%
   rename(age_min = Age_MIN, age_max = Age_MAX)
 
-# --- Filter by age span ---
+# Filtering by age span
 min_assemblage_age_diff <- 2000
 max_assemblage_age_diff <- 30000
 
 assemblages <- assemblages %>%
   filter(age_diff >= min_assemblage_age_diff & age_diff <= max_assemblage_age_diff)
 
-# ---- Remove duplicates: same locality + same age span ----
+# Removing duplicates: same locality + same age span
 assemblages <- assemblages %>%
   distinct(Locality, age_min, age_max, .keep_all = TRUE)
 
-# --- Time slice parameters ---
+# Time slice parameters
 form_age_max <- 130000
 form_age_min <- 40000
 form_timeslice_length <- 10000
 num_timeslices <- ceiling((form_age_max - form_age_min) / form_timeslice_length)
 
-# --- Build time slices ---
+# Building time slices
 timeslices <- list()
 for (i in 0:(num_timeslices - 1)) {
   slice_max <- form_age_max - form_timeslice_length * i
@@ -68,12 +68,54 @@ for (i in 0:(num_timeslices - 1)) {
   timeslices[[slice_name]] <- ts_df
 }
 
+# ============================================================
+#         Export locality lists per time slice
+# ============================================================
 
+out_slices_dir <- "3_output/road_analysis/time_slices"
+dir.create(out_slices_dir, showWarnings = FALSE, recursive = TRUE)
 
-############## MAP #######################
+# Helper: prepare a clean locality-level table for export
+prep_slice_export <- function(df, slice_name) {
+  df %>%
+    dplyr::distinct(Locality, .keep_all = TRUE) %>%
+    dplyr::mutate(
+      slice = slice_name,
+      X = as.numeric(X),
+      Y = as.numeric(Y)
+    ) %>%
+    dplyr::select(
+      slice,
+      Locality,
+      X, Y,
+      Country,
+      age_min, age_max, age_diff
+    )
+}
 
+# Write one CSV per slice
+timeslices_export <- lapply(names(timeslices), function(sname) {
+  df_out <- prep_slice_export(timeslices[[sname]], sname)
+  
+  out_file <- file.path(out_slices_dir, paste0("localities_", sname, ".csv"))
+  readr::write_csv(df_out, out_file)
+  
+  df_out
+})
+names(timeslices_export) <- names(timeslices)
 
-# --- Convert all time slices to sf objects ---
+# Also write a single combined CSV
+timeslices_export_all <- dplyr::bind_rows(timeslices_export)
+readr::write_csv(
+  timeslices_export_all,
+  file.path(out_slices_dir, "localities_all_slices.csv")
+)
+
+# =========================================
+#                  MAP
+# =========================================
+
+# Convert all time slices to sf objects
 # First ensure X and Y are numeric
 timeslices <- lapply(timeslices, function(df) {
   df$X <- as.numeric(df$X)
@@ -86,13 +128,13 @@ timeslices_sf <- lapply(timeslices, function(df) {
   st_as_sf(df, coords = c("X", "Y"), crs = 4326)
 })
 
-# --- DEM Preparation ---
+# DEM Preparation
 dem_global <- elevation_global(res = "2.5", path = "1_data/road_analysis/DEM_data")
 dem_df <- as.data.frame(dem_global, xy = TRUE)
 colnames(dem_df) <- c("Longitude", "Latitude", "Elevation")
 dem_df <- dem_df %>% mutate(Elevation = ifelse(Elevation <= 0, NA, Elevation))  # Mask water
 
-# --- Plot Settings ---
+# Plot Settings
 min_elevation <- 0
 max_elevation <- 6000
 min_density <- 0
@@ -100,7 +142,7 @@ max_density <- 0.01
 xlim_bounds <- c(-10, 45)
 ylim_bounds <- c(30, 60)
 
-# --- Plot Function ---
+# Plot Function
 create_density_map <- function(df, title) {
   ggplot() +
     geom_tile(data = dem_df, aes(x = Longitude, y = Latitude, fill = Elevation)) +
@@ -140,7 +182,7 @@ create_density_map <- function(df, title) {
     labs(title = title, x = NULL, y = NULL)
 }
 
-# --- Build Maps from sf Time Slices ---
+# Build Maps from sf Time Slices
 # Define the order and labels
 slice_names <- c(
   "slice_130000_120000", "slice_120000_110000", "slice_110000_1e+05",
@@ -154,24 +196,28 @@ map_titles <- c(
   "70 –  60 ka",  "60 –  50 ka",  "50 –  40 ka"
 )
 
-# Generate all maps in a loop
+# Compute n per slice and add to titles
+slice_n <- sapply(slice_names, function(s) nrow(timeslices_sf[[s]]))
+map_titles_n <- paste0(map_titles, " (n = ", slice_n, ")")
+
+# Generate all maps in a loop (using titles with n)
 maps <- mapply(
   function(name, title) {
     create_density_map(timeslices_sf[[name]], title)
   },
   name = slice_names,
-  title = map_titles,
+  title = map_titles_n,
   SIMPLIFY = FALSE
 )
 
-# --- Combine in 3x3 Panel with Shared Legend ---
+# Combine in 3x3 Panel with Shared Legend
 panel <- wrap_plots(maps, ncol = 3, guides = "collect") &
   theme(legend.position = "bottom")
 
-# --- Display Panel ---
+# Display Panel
 panel
 
-# --- Save Panel to File ---
+# Save Panel to File
 ggsave(
   filename = "3_output/road_analysis/density_panel_locality.png",
   plot = panel,

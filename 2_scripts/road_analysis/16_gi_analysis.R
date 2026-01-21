@@ -1,4 +1,3 @@
-
 # Loading Packages
 
 library(dplyr)
@@ -15,17 +14,15 @@ library(rnaturalearth)
 set.seed(42)  # reproducibility for all permutation tests
 
 
-# Helper + I/O
-
+# Helper
 read_txt_safe <- function(path) {
   # robust CSV2 reader (strings as chars, not factors)
   read.csv2(path, header = TRUE, colClasses = "character", stringsAsFactors = FALSE)
 }
-dir.create("3_output/road_analysis", showWarnings = FALSE, recursive = TRUE)  # ensure output folder exists
+dir.create("3_output/road_analysis", showWarnings = FALSE, recursive = TRUE)
 
 
 # Load data
-
 data_1 <- read_txt_safe("1_data/road_analysis/askROAD/europe_130-60_middle_pal.txt")                      
 data_2 <- read_txt_safe("1_data/road_analysis/askROAD/europe_asia_africa_130-40_humanremains_neanderthalensis.txt")
 
@@ -42,7 +39,6 @@ assemblages <- dplyr::bind_rows(data_1, data_2, data_3)          # combine all s
 
 
 # Clean + filter
-
 assemblages <- assemblages %>%
   mutate(
     Age_MIN = as.numeric(sub("#.*", "", Age_MIN)),
@@ -66,7 +62,6 @@ assemblages <- assemblages %>%
 
 
 # Time slices (10 ka) from 130–40 ka
-
 form_age_max <- 130000   # oldest bound (years BP)
 form_age_min <-  40000   # youngest bound (years BP)
 form_timeslice_length <- 10000  # slice width (years)
@@ -98,7 +93,7 @@ timeslices_sf <- lapply(timeslices, function(df) st_as_sf(df, coords = c("X","Y"
 win_wgs  <- st_as_sfc(st_bbox(c(xmin = -10, ymin = 30, xmax = 45, ymax = 60), crs = 4326))  # lon/lat box
 win_laea <- st_transform(win_wgs, 3035) # project to 3035
 
-# Tunable parameters for hex and neighbors
+# Tunable parameters for hex and neighbours
 hex_size_km      <- 50     # hex “diameter” ~ 50 km
 neighbor_band_km <- 150    # distance band for neighbors (Gi*)
 gi_perm_nsim     <- 999    # permutations per slice for p-values (sfdep)
@@ -125,7 +120,7 @@ count_slice <- function(pts_sf) {
     arrange(id)
 }
 
-# Same logic but for an arbitrary subset of points (used in permutation tests)
+# For an arbitrary subset of points
 make_counts_from_pts <- function(pts_subset){
   pts_laea <- st_transform(pts_subset, 3035)
   st_join(hex, pts_laea, join = st_contains, left = TRUE) |>
@@ -140,7 +135,7 @@ counts_by_slice <- lapply(timeslices_sf, count_slice)
 names(counts_by_slice) <- names(timeslices_sf)
 
 
-# Per-slice Gi*: p-values via sfdep; z-scores via spdep
+# Per-slice Gi*: p-values
 gi_results_list <- lapply(names(counts_by_slice), function(sname){
   df <- counts_by_slice[[sname]] |> arrange(id)
   # Permutation-based p-values (right-tailed; sfdep computes its own weights)
@@ -159,7 +154,7 @@ gi_results <- bind_rows(gi_results_list) |>
   left_join(hex, by = "id") |>
   st_as_sf(crs = 3035)
 
-# Deterministic Gi* z-scores (spdep::localG) for intensity summaries and ΔGi*
+# Deterministic Gi* z-scores
 if (!"gi_star" %in% names(gi_results)) {
   message("gi_star not found — computing z-scores with spdep::localG …")
   z_by_slice <- lapply(names(counts_by_slice), function(sname){
@@ -173,9 +168,9 @@ if (!"gi_star" %in% names(gi_results)) {
               by = c("id","slice"))
 }
 
-# ============================================================
+# ==================================================================
 # (1a) Slice-wise summary (global; focus on change through time)
-# ============================================================
+# ==================================================================
 cell_area_km2 <- set_units(st_area(hex)[1], km^2) |> as.numeric()  # per-hex area (km2)
 
 slice_summary <- gi_results |>
@@ -193,7 +188,7 @@ slice_summary <- gi_results |>
   arrange(factor(slice, levels = names(timeslices_sf)))
 write_csv(slice_summary, "3_output/road_analysis/gi_slice_summary_10ka_130-40.csv")
 
-# (Optional) quick map panel to eyeball per-slice hotspots (binary: hotspot vs other)
+# Quick map panel to eyeball per-slice hotspots (binary: hotspot vs other)
 label_from_slice <- function(s) paste0(gsub("_","–", gsub("^slice_", "", s)), " ka")
 plot_list <- lapply(names(timeslices_sf), function(sname){
   df_hex <- gi_results |> filter(slice == sname)
@@ -252,7 +247,7 @@ write_csv(slice_perm_df, "3_output/road_analysis/perm_slicewise_hotspot_counts.c
 
 # ============================================================
 # (1c) Consecutive (rolling) contrasts: each slice vs previous
-#      → persist/new/lost/other + Jaccard + ΔGi*
+#      → persist/new/lost/other + Jaccard + Gi*
 # ============================================================
 slice_order <- names(timeslices_sf)  # chronological order from 130–120 → 50–40
 
@@ -320,7 +315,7 @@ write_csv(consec_summary, "3_output/road_analysis/gi_consecutive_contrasts.csv")
 # (1d) Rolling change-class panel
 # =================================
 
-# Helper to create clean slice labels (in ka, not raw years)
+# Helper to create clean slice labels
 label_from_slice <- function(s) {
   # pull the two numbers from e.g. "slice_130000_120000"
   nums <- as.numeric(unlist(regmatches(s, gregexpr("[0-9]+", s))))
@@ -412,7 +407,7 @@ ggplot2::ggsave("3_output/road_analysis/gi_change_vs_previous_panel.png",
 
 # ============================================================
 # (2a) Baseline-anchored contrasts (global) vs 130–120 ka,
-#      persist/new/lost + Jaccard + ΔGi* + matched panel
+#      persist/new/lost + Jaccard + Gi* + matched panel
 # ============================================================
 baseline_slice <- "slice_130000_120000"  # reference slice
 
@@ -549,7 +544,7 @@ for (i in seq_along(target_slices)) {
   pts_current  <- st_transform(timeslices_sf[[sname]],          3035) %>% mutate(period = "Current")
   pts_all <- dplyr::bind_rows(pts_baseline, pts_current)
   
-  # Statistic: # of new hotspots inside France (Current vs Baseline) using z ≥ 1.96
+  # Statistic: # of new hotspots inside France (Current vs Baseline)
   stat_fun <- function(pts){
     pts_b <- pts[pts$period == "Baseline",]
     pts_c <- pts[pts$period == "Current",]
