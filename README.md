@@ -66,9 +66,11 @@ Cosimo Posth¹,²
 
 ## 🧭 Overview
 
-This repository contains the datasets, R scripts, and documentation for the analyses presented in the academic paper titled:
+This repository provides the data, R scripts, and documentation underlying the analyses presented in:
 
-**“Archaeogenetic insights into the demographic history of Late Neanderthals”**
+**“Archaeogenetic insights into the demographic history of Late Neanderthals.”**
+
+The code reproduces all main-text and supplementary figures and implements the full analytical workflow used to integrate archaeological, spatial, and genetic information. All analyses were conducted in R and are fully reproducible using the files provided here.
 
 ---
 
@@ -104,6 +106,9 @@ This repository contains the datasets, R scripts, and documentation for the anal
 ---
 
 ## 📊 Data Description
+
+All datasets are provided in processed, analysis-ready form. Raw data sources and preprocessing steps are documented within the corresponding scripts.
+
 - `1_data/dating/` – All data used for creating Fig. 3B and Fig. S18
 - `1_data/map/` – All data used for creating Fig. 1 and Fig. S21
 - `1_data/pairwise_distance/` – All data used for checking the pairwise distance (Fig. 2B)
@@ -114,9 +119,19 @@ This repository contains the datasets, R scripts, and documentation for the anal
 ---
 ## ⚙️ Getting started with the code
 
+The analytical workflow is modular, with each script corresponding to a specific component of the analyses reported in the paper.
+
 ---
 
 ## 💾 Software Requirements
+
+---
+## 📚 How to cite
+
+If you use the data or code from this repository, please cite both the associated publication and the Zenodo compendium:
+
+- Fotiadou CM et al. *Archaeogenetic insights into the demographic history of Late Neanderthals*. PNAS (in press).
+- Zenodo compendium: https://doi.org/10.5281/zenodo.16737433
 
 ---
 
@@ -132,6 +147,8 @@ Under the following terms:
 - **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
 
 For full legal terms, see the [CC-BY 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+This license applies to all original code and compiled datasets unless otherwise stated.
 
 ---
 
