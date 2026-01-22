@@ -118,15 +118,123 @@ All datasets are provided in processed, analysis-ready form. Raw data sources an
 - `1_data/yaworsky_et_al_2024/` – The orignial data from Yaworsky et al. 2024 for comparison.
 
 ---
+
 ## ⚙️ Getting started with the code
 
 The analytical workflow is modular, with each script corresponding to a specific component of the analyses reported in the paper.
 
+### 1. Open the R project
+
+Open the file: `lateNDthal_demography.Rproj` in **RStudio**. This ensures that all relative file paths used in the scripts resolve correctly.
+
+### 2. Script Organisation
+
+All analytical scripts are located in the `2_scripts/` directory and are grouped by analysis component:
+
+- `2_scripts/dating/` – Scripts for preparing and analysing chronological data, including radiocarbon-based temporal modelling and visualisation (e.g., Fig. 3B, Fig. S18).
+- `2_scripts/map/` – Scripts for generating spatial visualisations and site distribution maps (e.g., Fig. 1, Fig. S21).
+- `2_scripts/pairwise_distance/` – Scripts computing and plotting pairwise spatial distances between sites or samples (Fig. 2B).
+- `2_scripts/road_analysis/` – Scripts used for creating distribution maps, spatial connectivity and neighbourhood analyses using the ROAD dataset.
+- `2_scripts/yaworsky_extended/` – Scripts reproducing and extending the analytical workflow of Yaworsky et al. (2024).
+
+### 3. Running the analyses
+
+Within each subfolder, scripts are intended to be run sequentially, typically following a workflow of:
+
+1. Data import and preprocessing  
+2. Data filtering and transformation  
+3. Statistical or spatial analysis  
+4. Figure and table generation  
+
+Each script reads its required input data from the corresponding directory in `1_data/` and writes outputs (figures, tables, and intermediate files) to the matching subfolder in `3_output/`.
+
+> ⚠️ Some scripts, particularly those in `yaworsky_extended/`, download external datasets and may take several minutes to run. These scripts automatically create additional subdirectories under `1_data/` that are not tracked by Git due to file size.
+
+### 4. Outputs
+
+All generated outputs are written to:
+
+3_output/
+
+This directory mirrors the structure of `1_data/` and `2_scripts/` and contains all figures and summary tables used in the main text and supplementary information.
+
 ---
 
-## 💾 Software Requirements
+## 💾 Software requirements
+
+### R environment
+
+All analyses were developed and run using:
+
+- **R** ≥ 4.2.0  
+- **RStudio** (recommended)
+
+The code does not rely on features introduced after R 4.2 and is expected to run under later R 4.x releases.
 
 ---
+
+### R package versions
+
+Package versions were **not explicitly pinned** during development. The analyses were run using standard CRAN and Bioconductor releases available at the time of analysis. The code does not depend on specific minor versions.
+
+The packages listed below were **tested with versions equal to or newer than those indicated** and are expected to work with later releases.
+
+#### Data handling and visualisation
+- tidyverse ≥ 1.3.2  
+- reshape2 ≥ 1.4.4  
+- ggpubr ≥ 0.6.0  
+- patchwork ≥ 1.1.2  
+- viridis ≥ 0.6.3  
+- ggnewscale ≥ 0.4.9  
+
+#### Spatial analysis and mapping
+- sf ≥ 1.0-12  
+- raster ≥ 3.6-20  
+- units ≥ 0.8-1  
+- rnaturalearth ≥ 0.3.4  
+- rnaturalearthdata ≥ 0.1.0  
+- rworldmap ≥ 1.3-6  
+- geodata ≥ 0.5-8  
+- sfdep ≥ 0.1.2  
+- spdep ≥ 1.2-8  
+- dismo ≥ 1.3-9  
+- ENMeval ≥ 2.0.4  
+
+#### Chronological and statistical modelling
+- rcarbon ≥ 1.5.1  
+- mgcv ≥ 1.8-41  
+- caret ≥ 6.0-94  
+
+#### Paleoclimate data
+- pastclim ≥ 2.1.6  
+- pastclimData ≥ 2.1.6  
+
+#### Web scraping and file input
+- rvest ≥ 1.0.3  
+- readxl ≥ 1.4.2  
+
+#### System-dependent packages
+- rJava ≥ 1.0-6  
+
+---
+
+### Package installation
+
+Most packages can be installed from CRAN using:
+
+```r
+install.packages(c(
+  "tidyverse", "reshape2", "ggpubr", "patchwork", "viridis", "ggnewscale",
+  "sf", "raster", "units", "rnaturalearth", "rnaturalearthdata", "rworldmap",
+  "geodata", "sfdep", "spdep", "dismo", "ENMeval",
+  "rcarbon", "mgcv", "caret",
+  "pastclim", "pastclimData",
+  "rvest", "readxl", "rJava"
+))
+```
+
+---
+
 ## 📚 How to cite
 
 If you use the data or code from this repository, please cite both the associated publication and the Zenodo compendium:
