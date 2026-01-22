@@ -58,6 +58,7 @@ Cosimo Posth¹,²
 - [Getting started with the code](#-getting-started-with-the-code)
 - [Software Requirements](#-software-requirements)
 - [License](#-license)
+- [How to cite](#-how-to-cite)
 - [Acknowledgements (from paper)](#-acknowledgements-(from-paper))
 - [Contact](#-contact)
 
